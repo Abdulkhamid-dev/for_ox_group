@@ -5,6 +5,7 @@ import { Table } from "antd";
 import { BiSearchAlt2, BiLogIn } from "react-icons/bi";
 import { StyledMain } from "./Main.style";
 import { clearAccount } from "../../../app/auth/authSlice";
+import Swal from 'sweetalert2'
 
 function Main() {
   const dispatch = useDispatch();
@@ -34,7 +35,19 @@ function Main() {
     }
   };
   const LogOut = () => {
-    dispatch(clearAccount());
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clearAccount())
+      }
+    })
   };
   const columns = [
     {
@@ -81,7 +94,7 @@ function Main() {
           <BiSearchAlt2 size={24} onClick={() => inputRef.current.focus()} />
         </div>
         <div className="log_out" onClick={LogOut}>
-          <BiLogIn color='red' size={25}/>
+          <BiLogIn color='red' size={25} />
         </div>
       </header>
       {searchInput.length > 1 ? (

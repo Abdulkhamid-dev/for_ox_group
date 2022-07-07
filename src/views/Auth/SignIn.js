@@ -10,8 +10,8 @@ function SignIn() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [formValues, setFormValues] = useState({
-    username: "",
-    password: "",
+    username: "user_task",
+    password: "user_task",
   });
 
   let form = new FormData();
