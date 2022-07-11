@@ -37,12 +37,11 @@ function Main() {
   const LogOut = () => {
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, Log out'
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(clearAccount())
