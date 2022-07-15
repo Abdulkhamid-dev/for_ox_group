@@ -2,7 +2,7 @@ import React from "react";
 import SignIn from "./views/Auth/SignIn";
 import { useSelector } from "react-redux";
 import "antd/dist/antd.css";
-import Main from "./views/Auth/main/Main";
+import Main from "./views/main/Main";
 
 function App() {
   const { token } = useSelector((state) => state.account);
